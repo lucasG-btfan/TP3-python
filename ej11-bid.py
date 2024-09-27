@@ -1,16 +1,22 @@
-import numpy as np
-filas=3
-columnas=3
-j=0
-i=0
-tabla=np.array([[0 for _ in range(columnas)] for _ in range(filas)])
-for j in range(filas):
-    for i in range(columnas):
-        tabla[j][i]=int(input(f"Diga el numero de la posicion de fila {j} y la posicion de columna {i} "))
+filas = 3
+columnas = 3
+
+tabla = [
+    [1, 5, 0], 
+    [4, 1, 3], 
+    [0, 6, 1]
+]
+
+for fila in tabla:
+    print(fila)
+
+tabla90grados = [[0 for _ in range(filas)] for _ in range(columnas)]
 
 for j in range(filas):
     for i in range(columnas):
-        print(f"Valor en la posición ({j}, {i}): {tabla[j][i]}")
-tabla90grados=np.rot90(tabla,k=-1)
+        tabla90grados[i][filas - 1 - j] = tabla[j][i]
+
+
 print("La tabla girada 90 grados en el sentido de las agujas del reloj es de esta manera:")
-print (tabla90grados)
+for fila in tabla90grados:
+    print(fila)
